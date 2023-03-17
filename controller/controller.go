@@ -2,7 +2,6 @@ package controller
 
 import (
 	"github.com/Fedhira/Tugas_1214028/config"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/websocket/v2"
 	"github.com/whatsauth/whatsauth"
@@ -19,7 +18,7 @@ func PostWhatsAuthRequest(c *fiber.Ctx) error {
 		if err != nil {
 			return err
 		}
-		ntfbtn := whatsauth.RunModule(req, config.PrivateKey, config.Usertables[:], config.Ulbimariaconn)
+		ntfbtn := whatsauth.RunModuleLegacy(req, config.PrivateKey, config.Usertables[:], config.Ulbimariaconn)
 		return c.JSON(ntfbtn)
 	} else {
 		var ws whatsauth.WhatsauthStatus
