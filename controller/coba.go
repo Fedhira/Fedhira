@@ -1,11 +1,22 @@
 package controller
 
 import(
+	inimodel "github.com/Fedhira/Tagihan/model"
+	inimodul "github.com/Fedhira/Tagihan/module"
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
 	"github.com/Fedhira/Tugas_1214028/config"
+	"net/http"
 )
+
+func Home(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"github_repo": "https://github.com/Fedhira/Fedhira",
+		"message":     "You are at the root endpoint 😉",
+		"success":     true,
+	})
+}
 
 func Homepage(c *fiber.Ctx) error {
 	ipaddr := musik.GetIPaddress()
@@ -15,4 +26,106 @@ func Homepage(c *fiber.Ctx) error {
 func GetPresensi(c *fiber.Ctx) error {
 	ps := cek.GetPresensiCurrentMonth(config.Ulbimongoconn)
 	return c.JSON(ps)
+}
+
+func GetNasabah(c *fiber.Ctx) error {
+	nl := inimodul.GetNasabahFromNama("Fedhira Syaila","nasabah", config.Ulbimongoconn)
+	return c.JSON(nl)
+}
+
+func GetPenagih(c *fiber.Ctx) error {
+	nl := inimodul.GetPenagihFromNama("Marlina", "penagih", config.Ulbimongoconn)
+	return c.JSON(nl)
+}
+
+func GetTagihan(c *fiber.Ctx) error {
+	nl := inimodul.GetTagihanFromNama_nasabah("Fedhira Syaila", "tagihan", config.Ulbimongoconn)
+	return c.JSON(nl)
+}
+
+func GetBank(c *fiber.Ctx) error {
+	nl := inimodul.GetBankFromDaftar("Marlina", "bank", config.Ulbimongoconn)
+	return c.JSON(nl)
+}
+
+func GetAll(c *fiber.Ctx) error {
+	nl := inimodul.GetAllTagihanFromNama_nasabah("Fedhira Syaila", config.Ulbimongoconn, "tagihan")
+	return c.JSON(nl)
+}
+
+func InsertNasabah(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var nasabah inimodel.Nasabah
+	if err := c.BodyParser(&nasabah); err != nil {
+		return err
+	}
+	insertedID := inimodul.InsertNasabah(db, "nasabah",
+		nasabah.Nama_nasabah,
+		nasabah.Email,
+		nasabah.Phone_number,
+		nasabah.Alamat)
+	return c.JSON(map[string]interface{}{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
+
+func InsertPenagih(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var penagih inimodel.Penagih
+	if err := c.BodyParser(&penagih); err != nil {
+		return err
+	}
+	insertedID := inimodul.InsertPenagih(db, "penagih",
+	penagih.Nama_penagih,
+	penagih.Email,
+	penagih.Phone_number,
+	penagih.Total_Tagihan)
+	return c.JSON(map[string]interface{}{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
+
+func InsertTagihan(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var tagihan inimodel.Tagihan
+	if err := c.BodyParser(&tagihan); err != nil {
+		return err
+	}
+	insertedID := inimodul.InsertTagihan(db, "tagihan",
+	tagihan.Total_Tagihan,
+	tagihan.Deskripsi,
+	tagihan.Status,
+	tagihan.Tanggal_jatuhtempo,
+	tagihan.Biodata,
+	tagihan.Location,
+	tagihan.Longitude,
+	tagihan.Latitude)
+	return c.JSON(map[string]interface{}{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
+
+func InsertBank(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var bank inimodel.Bank
+	if err := c.BodyParser(&bank); err != nil {
+		return err
+	}
+	insertedID := inimodul.InsertBank(db, "bank",
+	bank.Nama_bank,
+	bank.Lokasi,
+	bank.Total_Tagihan,
+	bank.Daftar,
+	bank.Biodata)
+	return c.JSON(map[string]interface{}{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
 }
