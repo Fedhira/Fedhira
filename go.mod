@@ -9,7 +9,9 @@ require (
 	github.com/aiteung/presensi v0.0.18
 	github.com/gofiber/fiber/v2 v2.42.0
 	github.com/gofiber/websocket/v2 v2.1.4
+	github.com/indrariksa/be_presensi v0.0.8
 	github.com/whatsauth/whatsauth v0.1.89
+	go.mongodb.org/mongo-driver v1.11.3
 )
 
 require (
@@ -49,7 +51,6 @@ require (
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
 	go.mau.fi/libsignal v0.1.0 // indirect
 	go.mau.fi/whatsmeow v0.0.0-20230316102651-f0c131192076 // indirect
-	go.mongodb.org/mongo-driver v1.11.3 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
