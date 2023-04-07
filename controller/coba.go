@@ -15,10 +15,10 @@ import(
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// func GetAllNew(c *fiber.Ctx) error {
-// 	ps := inimodul.GetAllTagihan(config.Ulbimongoconn, "bank")
-// 	return c.JSON(ps)
-// }
+func GetAllBank(c *fiber.Ctx) error {
+	ps := inimodul.GetAllBank(config.Ulbimongoconn, "bank")
+	return c.JSON(ps)
+}
 
 func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi")

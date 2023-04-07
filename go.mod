@@ -3,7 +3,7 @@ module github.com/Fedhira/Tugas_1214028
 go 1.20
 
 require (
-	github.com/Fedhira/be_tagihan v0.0.1
+	github.com/Fedhira/be_tagihan v0.0.2
 	github.com/aiteung/atdb v0.0.10
 	github.com/aiteung/musik v0.0.5
 	github.com/aiteung/presensi v0.0.18

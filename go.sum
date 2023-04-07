@@ -7,8 +7,8 @@ github.com/Azure/azure-sdk-for-go/sdk/azcore v1.1.2/go.mod h1:uGG2W01BaETf0Ozp+Q
 github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.1.0/go.mod h1:bhXu1AjYL+wutSL/kpSq6s7733q2Rb0yuot9Zgfqa/0=
 github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0/go.mod h1:eWRD7oawr1Mu1sLCawqVc0CUiF43ia3qQMxLscsKQ9w=
 github.com/AzureAD/microsoft-authentication-library-for-go v0.5.1/go.mod h1:Vt9sXTKwMyGcOxSmLDMnGPgqsUg7m8pe215qMLrDXw4=
-github.com/Fedhira/be_tagihan v0.0.1 h1:HVlTSPemJhQZXyNCpgfYlYodViiYG92HKxVshEAcIpM=
-github.com/Fedhira/be_tagihan v0.0.1/go.mod h1:6/qzSaGOdOeSDd80RLKtqSuOwUU19TglFSZfbSHQig4=
+github.com/Fedhira/be_tagihan v0.0.2 h1:8QA6jkqCVmFNAAgZcmH8+HZMvcOp9ZMzD+LHalQGmKg=
+github.com/Fedhira/be_tagihan v0.0.2/go.mod h1:6/qzSaGOdOeSDd80RLKtqSuOwUU19TglFSZfbSHQig4=
 github.com/aiteung/atapi v0.0.10 h1:n2UpykaSIlFrdfrEaTU27/y1gXZ0KMAJLypNH4eb+so=
 github.com/aiteung/atapi v0.0.10/go.mod h1:WRmSafqlDpo8PqT1NxoobjVEXkk7vJ6fj7bzh0MTzkM=
 github.com/aiteung/atdb v0.0.10 h1:DAH7bGDP00WQVLmZQ6QzxSiSip9o0V6BuSE3wvQtw5I=
