@@ -166,9 +166,7 @@ func InsertBank(c *fiber.Ctx) error {
 	insertedID := inimodul.InsertBank(db, "bank",
 	bank.Nama_bank,
 	bank.Lokasi,
-	bank.Total_Tagihan,
-	bank.Daftar,
-	bank.Biodata)
+	bank.Daftar)
 	return c.JSON(map[string]interface{}{
 		"status":      http.StatusOK,
 		"message":     "Data berhasil disimpan.",
