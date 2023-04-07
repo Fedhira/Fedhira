@@ -1,8 +1,8 @@
 package controller
 
 import(
-	inimodel "github.com/Fedhira/Tagihan/model"
-	inimodul "github.com/Fedhira/Tagihan/module"
+	inimodel "github.com/Fedhira/be_tagihan/model"
+	inimodul "github.com/Fedhira/be_tagihan/module"
 	inimodullatihan "github.com/indrariksa/be_presensi/module"
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
@@ -14,6 +14,11 @@ import(
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
+
+func GetAllNew(c *fiber.Ctx) error {
+	ps := inimodul.GetAllTagihan(config.Ulbimongoconn, "bank")
+	return c.JSON(ps)
+}
 
 func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi")
@@ -85,7 +90,7 @@ func GetTagihan(c *fiber.Ctx) error {
 }
 
 func GetBank(c *fiber.Ctx) error {
-	nl := inimodul.GetBankFromDaftar("Marlina", "bank", config.Ulbimongoconn)
+	nl := inimodul.GetBankFromNama_bank("bank abc", "bank", config.Ulbimongoconn)
 	return c.JSON(nl)
 }
 

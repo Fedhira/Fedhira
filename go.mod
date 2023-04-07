@@ -3,15 +3,15 @@ module github.com/Fedhira/Tugas_1214028
 go 1.20
 
 require (
-	github.com/Fedhira/Tagihan v0.0.5
-	github.com/aiteung/atdb v0.0.9
+	github.com/Fedhira/be_tagihan v0.0.1
+	github.com/aiteung/atdb v0.0.10
 	github.com/aiteung/musik v0.0.5
 	github.com/aiteung/presensi v0.0.18
 	github.com/gofiber/fiber/v2 v2.42.0
 	github.com/gofiber/websocket/v2 v2.1.4
 	github.com/indrariksa/be_presensi v0.0.8
 	github.com/whatsauth/whatsauth v0.1.89
-	go.mongodb.org/mongo-driver v1.11.3
+	go.mongodb.org/mongo-driver v1.11.4
 )
 
 require (
