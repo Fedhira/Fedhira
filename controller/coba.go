@@ -75,7 +75,7 @@ func GetPresensi(c *fiber.Ctx) error {
 }
 
 func GetNasabah(c *fiber.Ctx) error {
-	nl := inimodul.GetNasabahFromNama("Fedhira Syaila","nasabah", config.Ulbimongoconn)
+	nl := inimodul.GetNasabahFromNama("Auliyah Safana","nasabah", config.Ulbimongoconn)
 	return c.JSON(nl)
 }
 
@@ -85,7 +85,7 @@ func GetPenagih(c *fiber.Ctx) error {
 }
 
 func GetTagihan(c *fiber.Ctx) error {
-	nl := inimodul.GetTagihanFromNama_nasabah("Fedhira Syaila", "tagihan", config.Ulbimongoconn)
+	nl := inimodul.GetTagihanFromNama_nasabah("Auliyah Safana", "tagihan", config.Ulbimongoconn)
 	return c.JSON(nl)
 }
 
@@ -95,7 +95,7 @@ func GetBank(c *fiber.Ctx) error {
 }
 
 func GetAll(c *fiber.Ctx) error {
-	nl := inimodul.GetAllTagihanFromNama_nasabah("Fedhira Syaila", config.Ulbimongoconn, "tagihan")
+	nl := inimodul.GetAllTagihanFromNama_nasabah("Auliyah Safana", config.Ulbimongoconn, "tagihan")
 	return c.JSON(nl)
 }
 
