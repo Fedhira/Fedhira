@@ -4,6 +4,8 @@ import(
 	inimodel "github.com/Fedhira/be_tagihan/model"
 	inimodul "github.com/Fedhira/be_tagihan/module"
 	inimodullatihan "github.com/indrariksa/be_presensi/module"
+	inimodell "github.com/indrariksa/be_presensi/model"
+	inimodull "github.com/indrariksa/be_presensi/module"
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
@@ -14,6 +16,34 @@ import(
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
+func InsertData(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var presensi inimodell.Presensi
+	if err := c.BodyParser(&presensi); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	insertedID, err := inimodull.InsertPresensi(db, "presensi",
+		presensi.Longitude,
+		presensi.Latitude,
+		presensi.Location,
+		presensi.Phone_number,
+		presensi.Checkin,
+		presensi.Biodata)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
 
 func GetAllBank(c *fiber.Ctx) error {
 	ps := inimodul.GetAllBank(config.Ulbimongoconn, "bank")
