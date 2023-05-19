@@ -62,8 +62,8 @@ github.com/gorilla/sessions v1.2.1/go.mod h1:dk2InVEVJ0sfLlnXv9EAgkf6ecYs/i80K/z
 github.com/gorilla/websocket v1.5.0 h1:PPwGk2jz7EePpoHN/+ClbZu8SPxiqlu12wZP/3sWmnc=
 github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/hashicorp/go-uuid v1.0.2/go.mod h1:6SBZvOh/SIDV7/2o3Jml5SYk/TvGqwFJ/bN7x4byOro=
-github.com/indrariksa/be_presensi v0.0.8 h1:PTHokBJKGEDhgdZj9OSUCIRdQGVC0MMzFwUS3KkfRW8=
-github.com/indrariksa/be_presensi v0.0.8/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
+github.com/indrariksa/be_presensi v0.0.12 h1:o4bHFBUqysHzdLgU1kS9HxERh8vgiZEs7iRbDiO8D/Q=
+github.com/indrariksa/be_presensi v0.0.12/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
 github.com/jcmturner/aescts/v2 v2.0.0/go.mod h1:AiaICIRyfYg35RUkr8yESTqvSy7csK90qZ5xfvvsoNs=
 github.com/jcmturner/dnsutils/v2 v2.0.0/go.mod h1:b0TnjGOvI/n42bZa+hmXL+kFJZsFT7G4t3HTlQ184QM=
 github.com/jcmturner/gofork v1.0.0/go.mod h1:MK8+TM0La+2rjBD4jE12Kj1pCCxK7d2LK/UM3ncEo0o=
