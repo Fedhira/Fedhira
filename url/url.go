@@ -22,9 +22,13 @@ func Web(page *fiber.App) {
 	page.Post("/instagihan", controller.InsertTagihan)
 	page.Post("/insbank", controller.InsertBank)
 	page.Post("/ins", controller.InsertData)
+	
 
 	page.Get("/presensi", controller.GetAllPresensi) //menampilkan seluruh data presensi
 	page.Get("/presensi/:id", controller.GetPresensiID) //menampilkan data presensi berdasarkan id
 
 	page.Get("/all", controller.GetAllBank) //menampilkan seluruh data presensi
+
+	page.Put("/upd/:id", controller.UpdateData)
+	page.Delete("/delete/:id", controller.DeletePresensiByID)
 }
