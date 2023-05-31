@@ -25,7 +25,7 @@ import (
 // @contact.url https://github.com/Fedhira
 // @contact.email sfedhira@gmail.com
 
-// @host fedhirasyaila.heroku.com
+// @host fedhirasyaila.herokuapp.com
 // @BasePath /
 //@schemes https http
 
