@@ -73,6 +73,46 @@ func GetPresensiID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// InsertData godoc
+// @Summary Insert data presensi.
+// @Description Input data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param request body Presensi true "Payload Body [RAW]"
+// @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
+func InsertData(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var presensi inimodell.Presensi
+	if err := c.BodyParser(&presensi); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	insertedID, err := inimodull.InsertPresensi(db, "presensi",
+		presensi.Longitude,
+		presensi.Latitude,
+		presensi.Location,
+		presensi.Phone_number,
+		presensi.Checkin,
+		presensi.Biodata)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
+
 func DeletePresensiByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -147,35 +187,6 @@ func UpdateData(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
 		"message": "Data successfully updated",
-	})
-}
-
-func InsertData(c *fiber.Ctx) error {
-	db := config.Ulbimongoconn
-	var presensi inimodell.Presensi
-	if err := c.BodyParser(&presensi); err != nil {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": err.Error(),
-		})
-	}
-	insertedID, err := inimodull.InsertPresensi(db, "presensi",
-		presensi.Longitude,
-		presensi.Latitude,
-		presensi.Location,
-		presensi.Phone_number,
-		presensi.Checkin,
-		presensi.Biodata)
-	if err != nil {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": err.Error(),
-		})
-	}
-	return c.Status(http.StatusOK).JSON(fiber.Map{
-		"status":      http.StatusOK,
-		"message":     "Data berhasil disimpan.",
-		"inserted_id": insertedID,
 	})
 }
 
