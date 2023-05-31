@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/gofiber/swagger"
 	"log"
 
 	"github.com/Fedhira/Tugas_1214028/config"
