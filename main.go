@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gofiber/swagger"
 	"log"
 
 	"github.com/Fedhira/Tugas_1214028/config"
@@ -13,6 +14,8 @@ import (
 	"github.com/Fedhira/Tugas_1214028/url"
 
 	"github.com/gofiber/fiber/v2"
+
+	"github.com/Fedhira/Tugas_1214028/docs"
 )
 
 func main() {
