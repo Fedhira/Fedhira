@@ -17,6 +17,19 @@ import(
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// GetAllPresensi godoc
+// @Summary Get All Data Presensi.
+// @Description Mengambil semua data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Success 200 {object} Presensi
+// @Router /presensi [get]
+func GetAllPresensi(c *fiber.Ctx) error {
+	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi")
+	return c.JSON(ps)
+}
+
 func DeletePresensiByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -125,11 +138,6 @@ func InsertData(c *fiber.Ctx) error {
 
 func GetAllBank(c *fiber.Ctx) error {
 	ps := inimodul.GetAllBank(config.Ulbimongoconn, "bank")
-	return c.JSON(ps)
-}
-
-func GetAllPresensi(c *fiber.Ctx) error {
-	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi")
 	return c.JSON(ps)
 }
 
