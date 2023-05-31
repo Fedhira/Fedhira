@@ -17,16 +17,17 @@ import (
 	_ "github.com/Fedhira/Tugas_1214028/docs"
 )
 
-// @title Fiber Example API
+// @title TES SWAG
 // @version 1.0
-// @description This is a sample swagger for Fiber
-// @termsOfService http://swagger.io/terms/
+// @description This is a sample swagger server.
+
 // @contact.name API Support
-// @contact.email fiber@swagger.io
-// @license.name Apache 2.0
-// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host localhost:8080
+// @contact.url https://github.com/Fedhira
+// @contact.email sfedhira@gmail.com
+
+// @host fedhirasyaila.heroku.com
 // @BasePath /
+//@schemes https http
 
 func main() {
 	go whatsauth.RunHub()

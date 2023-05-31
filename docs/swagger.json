@@ -1,20 +1,20 @@
 {
+    "schemes": [
+        "https",
+        "http"
+    ],
     "swagger": "2.0",
     "info": {
-        "description": "This is a sample swagger for Fiber",
-        "title": "Fiber Example API",
-        "termsOfService": "http://swagger.io/terms/",
+        "description": "This is a sample swagger server.",
+        "title": "TES SWAG",
         "contact": {
             "name": "API Support",
-            "email": "fiber@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            "url": "https://github.com/Fedhira",
+            "email": "sfedhira@gmail.com"
         },
         "version": "1.0"
     },
-    "host": "localhost:8080",
+    "host": "fedhirasyaila.heroku.com",
     "basePath": "/",
     "paths": {}
 }
