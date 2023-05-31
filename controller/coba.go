@@ -113,37 +113,18 @@ func InsertData(c *fiber.Ctx) error {
 	})
 }
 
-func DeletePresensiByID(c *fiber.Ctx) error {
-	id := c.Params("id")
-	if id == "" {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": "Wrong parameter",
-		})
-	}
-
-	objID, err := primitive.ObjectIDFromHex(id)
-	if err != nil {
-		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
-			"status":  http.StatusBadRequest,
-			"message": "Invalid id parameter",
-		})
-	}
-
-	err = inimodull.DeletePresensiByID(objID, config.Ulbimongoconn, "presensi")
-	if err != nil {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": fmt.Sprintf("Error deleting data for id %s", id),
-		})
-	}
-
-	return c.Status(http.StatusOK).JSON(fiber.Map{
-		"status":  http.StatusOK,
-		"message": fmt.Sprintf("Data with id %s deleted successfully", id),
-	})
-}
-
+// UpdateData godoc
+// @Summary Update data presensi.
+// @Description Ubah data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Presensi true "Payload Body [RAW]"
+// @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 500
+// @Router /upd/{id} [put]
 func UpdateData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 
@@ -187,6 +168,37 @@ func UpdateData(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
 		"message": "Data successfully updated",
+	})
+}
+
+func DeletePresensiByID(c *fiber.Ctx) error {
+	id := c.Params("id")
+	if id == "" {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": "Wrong parameter",
+		})
+	}
+
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"status":  http.StatusBadRequest,
+			"message": "Invalid id parameter",
+		})
+	}
+
+	err = inimodull.DeletePresensiByID(objID, config.Ulbimongoconn, "presensi")
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": fmt.Sprintf("Error deleting data for id %s", id),
+		})
+	}
+
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":  http.StatusOK,
+		"message": fmt.Sprintf("Data with id %s deleted successfully", id),
 	})
 }
 
