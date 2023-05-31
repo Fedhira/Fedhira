@@ -56,7 +56,7 @@ definitions:
       phone_number:
         type: string
     type: object
-host: fedhirasyaila.heroku.com
+host: fedhirasyaila.herokuapp.com
 info:
   contact:
     email: sfedhira@gmail.com

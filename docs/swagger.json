@@ -14,7 +14,7 @@
         },
         "version": "1.0"
     },
-    "host": "fedhirasyaila.heroku.com",
+    "host": "fedhirasyaila.herokuapp.com",
     "basePath": "/",
     "paths": {
         "/presensi": {
