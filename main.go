@@ -15,7 +15,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"github.com/Fedhira/Tugas_1214028/docs"
+	_ "github.com/Fedhira/Tugas_1214028/docs"
 )
 
 func main() {
